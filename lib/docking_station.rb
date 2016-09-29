@@ -8,7 +8,10 @@ attr_reader :bike
   end
 
   def dock_bike
-   @bike = bike
+   @bike
   end
 
+  def view_bike
+   @docked_bike
+  end
 end

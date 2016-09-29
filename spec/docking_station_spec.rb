@@ -15,4 +15,8 @@ describe DockingStation do
     expect(subject.dock_bike).to eq @bike
   end
 
+  it 'views a bike' do
+    expect(subject.view_bike).to eq @docked_bike
+  end
+
 end
