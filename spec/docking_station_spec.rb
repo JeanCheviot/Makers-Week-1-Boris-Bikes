@@ -1,6 +1,5 @@
 require 'docking_station'
 
-# 'subject' means create new instance of decribed class ie DockingStation.new
 describe DockingStation do
   it 'releases a bike' do
     expect(subject.release_bike).not_to eq true
@@ -11,12 +10,14 @@ describe DockingStation do
     expect(bike.working).to eq true
   end
 
-  it 'docks a bike' do
-    expect(subject.dock_bike).to eq @bike
+  it 'docks something' do
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq bike
   end
 
-  it 'views a bike' do
-    expect(subject.view_bike).to eq @docked_bike
+  it 'returns docked bikes' do
+    bike = Bike.new
+    subject.dock(bike)
+    expect(subject.bike).to eq bike
   end
-
 end
