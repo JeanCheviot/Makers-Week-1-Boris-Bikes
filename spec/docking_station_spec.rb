@@ -12,11 +12,7 @@ describe DockingStation do
   end
 
   it 'docks a bike' do
-    expect(subject.dock_bike).to eq true
-  end
-
-  it 'adds bike to available bikes' do
-    expect(subject.docked_bike).to be (available_bikes << docked_bike)
+    expect(subject.dock_bike).to eq @bike
   end
 
 end
