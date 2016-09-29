@@ -1,17 +1,8 @@
-require './lib/bike.rb'
+require 'bike.rb'
 
+# 'subject' means create new instance of decribed class ie Bike.new
 describe Bike do
-  it { is_expected.to respond_to :working?}
-#refactored to single line code
-
+  it 'checks working bike' do
+    expect(subject.working).to eq true
+  end
 end
-
-=begin
-
-ORIGINAL CODE BELOW:
-
-it 'expect Bike to respond_to .working?' do
-  bike = Bike.new
-  expect(bike.working?).to eq true
-  
-=end
