@@ -1,22 +1,33 @@
 require 'docking_station'
 
-# 'subject' means create new instance of decribed class ie DockingStation.new
 describe DockingStation do
-  it 'releases a bike' do
-    expect(subject.release_bike).not_to eq true
-  end
+  
+  describe '#release_bike' do
+  it 'raises an error when there are no bikes' do
+  dock = DockingStation.new
+  dock.release_bike
+  expect { dock.release_bike }.to raise_error 'No bikes available'
 
+    end
+  end
   it 'creates a new working instance of the Bike Class' do
     bike = subject.release_bike
-    expect(bike.working).to eq true
   end
 
+
+  describe 'dock' do
   it 'docks a bike' do
-    expect(subject.dock_bike).to eq @bike
+    dock2 = DockingStation.new
+    dock2.release_bike
+    dock2.dock
+    expect(dock2.bike.class).to eq Bike
+   end
   end
-
+  
+  describe 'view_bike' do
   it 'views a bike' do
     expect(subject.view_bike).to eq @docked_bike
+   end
   end
 
 end
