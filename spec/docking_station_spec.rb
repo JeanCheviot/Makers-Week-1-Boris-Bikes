@@ -1,7 +1,7 @@
 require 'docking_station'
 
 describe DockingStation do
-  
+
   describe '#release_bike' do
   it 'raises an error when there are no bikes' do
   dock = DockingStation.new
@@ -21,17 +21,15 @@ describe DockingStation do
     dock2.dock
     expect(dock2.bike.class).to eq Bike
    end
-  end
-  
-  describe 'view_bike' do
-  it 'views a bike' do
-    expect(subject.view_bike).to eq @docked_bike
+   it 'won\'t allow a user to dock a bike if full' do
+     expect { subject.dock }.to raise_error 'No space available'
    end
+  end
 
-
-  it 'returns docked bikes' do
-    bike = Bike.new
-    subject.dock(bike)
-    expect(subject.bike).to eq bike
+  it 'can dock new bikes' do
+    dock3 = DockingStation.new
+    dock3.release_bike
+    dock3.dock
+    expect(dock3.bike.class).to eq Bike
   end
 end

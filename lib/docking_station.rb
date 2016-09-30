@@ -1,8 +1,8 @@
 require_relative 'bike'
 
 class DockingStation
-attr_reader :bike  
-  
+attr_reader :bike
+
   def initialize
 	@bike = Bike.new
   end
@@ -20,7 +20,11 @@ attr_reader :bike
   end
 
   def dock
-   @bike = Bike.new
+    if @bike.class == Bike
+      fail 'No space available'
+    else
+      @bike = Bike.new
+    end
   end
 
 end
