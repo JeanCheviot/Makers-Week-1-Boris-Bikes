@@ -7,6 +7,7 @@ attr_reader :bike
 	@bike = Bike.new
   end
 
+
   def release_bike
     if @bike == 0
       fail 'No bikes available'
@@ -22,7 +23,4 @@ attr_reader :bike
    @bike = Bike.new
   end
 
-  def view_bike
-   @docked_bike
-  end
 end

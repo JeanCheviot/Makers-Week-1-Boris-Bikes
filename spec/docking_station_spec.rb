@@ -14,7 +14,6 @@ describe DockingStation do
     bike = subject.release_bike
   end
 
-
   describe 'dock' do
   it 'docks a bike' do
     dock2 = DockingStation.new
@@ -28,6 +27,11 @@ describe DockingStation do
   it 'views a bike' do
     expect(subject.view_bike).to eq @docked_bike
    end
-  end
 
+
+  it 'returns docked bikes' do
+    bike = Bike.new
+    subject.dock(bike)
+    expect(subject.bike).to eq bike
+  end
 end
